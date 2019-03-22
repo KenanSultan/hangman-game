@@ -9,7 +9,6 @@ function find_band() {
     band = bands[Math.floor(Math.random()*bands.length)]
     len = band.length
     chanses = 12
-    console.log("The right band is: " + band)
     letters = []
     guesses = []
     letter_space = document.querySelector("#letters")
@@ -41,6 +40,8 @@ function key_click(event) {
                 guess_space.innerHTML += ", " + guess
             }else{
                 guess_space.innerHTML += guess
+                message = document.querySelector("#msg")
+                message.innerHTML = ""
             }
             chanses_space = document.querySelector("#chanses")
             chanses_space.innerHTML = chanses
@@ -57,7 +58,6 @@ function key_click(event) {
             var i = 0;
             while(letters.indexOf(guess,i)>=0) {
                 var a = letters.indexOf(guess,i)
-                
                 var span_space = document.getElementById(a)
                 span_space.innerHTML = guess
                 len--

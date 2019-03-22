@@ -68,8 +68,10 @@ function key_click(event) {
             message.innerHTML = "YOU WIN"
             wins++
             let win_space = document.querySelector("#wins")
-            win_space.innerHTML = wins
+            win_space.innerHTML = wins  
             find_band()
+            guess_space.innerHTML = ""
+            chanses_space.innerHTML = chanses 
         }
     }
 }

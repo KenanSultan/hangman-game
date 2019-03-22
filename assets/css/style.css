@@ -1,0 +1,38 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Chewy', cursive, sans-serif;
+    font-size: 22px;
+    font-style: italic;
+    letter-spacing: 0.2em;
+}
+
+header {
+    margin-top: 30px;
+    max-width: 100% !important;
+}
+
+.var {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+section {
+    max-width: 700px !important;
+    margin-bottom: 60px;
+}
+
+.left, .right {
+    border: dotted 6px white;
+    padding: 20px;
+}
+
+.left {
+    border-right: dashed 4px white;
+    padding: 20px;
+}
+
+.right {
+    border-left: dashed 4px white;
+    padding: 20px;
+}

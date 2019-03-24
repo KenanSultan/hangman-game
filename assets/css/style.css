@@ -21,23 +21,30 @@ img {
 }
 
 .var {
-    margin-top: 20px;
-    margin-bottom: 30px;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
 }
 
-#msg {
-    margin-top: 0px;
+#msg, #song_name {
+    margin-top: 10px;
     margin-bottom: 10px;
+    letter-spacing: 0.2em;
 }
 
 section {
-    max-width: 700px !important;
+    max-width: 800px !important;
     margin-bottom: 60px;
+}
+
+section .text {
+    padding: 10px 15px;
+    margin: 0;
+    margin-top: 15px;
 }
 
 .left, .right {
     border: dotted 6px white;
-    padding: 20px;
 }
 
 .left {
@@ -47,5 +54,4 @@ section {
 
 .right {
     border-left: dashed 4px white;
-    padding: 20px;
 }

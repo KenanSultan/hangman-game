@@ -5,14 +5,19 @@ for(let i=0; i<bands.length; i++){
     console.log(bands[i])
 }
 
-function find_band() {
+function new_game() {
     band = bands[Math.floor(Math.random()*bands.length)]
     len = band.length
     chanses = 12
     letters = []
     guesses = []
+    right_guesses = []
     letter_space = document.querySelector("#letters")
     letter_space.innerHTML = ""
+    guess_space = document.querySelector("#guesses")
+    guess_space.innerHTML = ""
+    chanses_space = document.querySelector("#chanses")
+    chanses_space.innerHTML = chanses
     for(let i=0; i<len; i++){
         letters.push(band[i])
         letter_space = document.createElement('span')
@@ -22,7 +27,7 @@ function find_band() {
     }
 }
 
-find_band()
+new_game()
 
 // Herhangi tusha basildiginda
 window.onkeypress = key_click
@@ -46,14 +51,17 @@ function key_click(event) {
             chanses_space = document.querySelector("#chanses")
             chanses_space.innerHTML = chanses
         }else{
-            find_band()
+            new_game()
             message = document.querySelector("#msg")
             message.innerHTML = "YOU LOSE"
             guess_space.innerHTML = ""
             chanses_space.innerHTML = chanses     
         } 
     // Dogru harf girildiginde
-    }else if(letters.indexOf(guess)!==-1){
+    }else if(right_guesses.indexOf(guess)===-1 && letters.indexOf(guess)!==-1){
+        message = document.querySelector("#msg")
+        message.innerHTML = ""
+        right_guesses.push(guess)
         if(len>1){
             var i = 0;
             while(letters.indexOf(guess,i)>=0) {
@@ -69,9 +77,7 @@ function key_click(event) {
             wins++
             let win_space = document.querySelector("#wins")
             win_space.innerHTML = wins  
-            find_band()
-            guess_space.innerHTML = ""
-            chanses_space.innerHTML = chanses 
+            new_game() 
         }
     }
 }

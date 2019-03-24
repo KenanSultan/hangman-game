@@ -9,7 +9,10 @@ body {
 
 header {
     margin-top: 30px;
-    max-width: 100% !important;
+}
+
+img {
+    max-width: 100%;
 }
 
 .var {

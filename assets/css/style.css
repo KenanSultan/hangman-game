@@ -15,9 +15,19 @@ img {
     max-width: 100%;
 }
 
+.left img {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
 .var {
     margin-top: 20px;
     margin-bottom: 30px;
+}
+
+#msg {
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
 
 section {

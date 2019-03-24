@@ -5,9 +5,15 @@ for (let i = 0; i < bands.length; i++) {
     console.log(bands[i])
 }
 
+band_image = document.createElement("img")
+band_image.src = "./assets/images/hangman-boardgame.jpg"
+left_side = document.querySelector(".band_pic")
+left_side.appendChild(band_image)
+
 // Yeni oyun baslatmak icin fonksiyon
 function new_game() {
     band = bands[Math.floor(Math.random() * bands.length)]
+    console.log(band)
     len = band.length
     chanses = 12
     letters = []
@@ -26,22 +32,33 @@ function new_game() {
         letter_space.innerHTML = "_ "
         document.getElementById("letters").appendChild(letter_space)
     }
+    if(letters.indexOf('-') !== -1){
+        var a = letters.indexOf('-')
+        var span_space = document.getElementById(a)
+        span_space.innerHTML = "/ "
+        span_space.style.color = "#000"
+        len--
+    }
 }
 
 // Kazaninca cagirilir
 function win_func() {
-    message = document.querySelector("#msg")
-    message.innerHTML = "YOU WIN"
+    band_image.src = "./assets/images/" + band.toLowerCase() + ".jpg"
+
+    let message = document.querySelector("#msg")
+    message.innerHTML = band
     wins++
     let win_space = document.querySelector("#wins")
     win_space.innerHTML = wins
+
     new_game()
 }
 
 // Kaybedince cagirilir
 function lose_func() {
-    message = document.querySelector("#msg")
+    let message = document.querySelector("#msg")
     message.innerHTML = "YOU LOSE"
+
     new_game()
 }
 
@@ -54,36 +71,34 @@ function key_click(event) {
         if (chanses > 1) {
             chanses--
             guesses.push(guess)
-            guess_space = document.querySelector("#guesses")
+            let guess_space = document.querySelector("#guesses")
             if (guesses.length > 1) {
                 guess_space.innerHTML += ", " + guess
             } else {
                 guess_space.innerHTML += guess
-                message = document.querySelector("#msg")
+                let message = document.querySelector("#msg")
                 message.innerHTML = ""
+                band_image.src = "./assets/images/hangman-boardgame.jpg"
             }
             chanses_space = document.querySelector("#chanses")
             chanses_space.innerHTML = chanses
-        } else {
-            lose_func()
-        }
+        } else lose_func()
+
     // Dogru harf girildiginde
     } else if (right_guesses.indexOf(guess) === -1 && letters.indexOf(guess) !== -1) {
-        message = document.querySelector("#msg")
+        if(right_guesses.length === 0) band_image.src = "./assets/images/hangman-boardgame.jpg"
+        let message = document.querySelector("#msg")
         message.innerHTML = ""
         right_guesses.push(guess)
-        if (len > 1) {
-            var i = 0;
-            while (letters.indexOf(guess, i) >= 0) {
-                var a = letters.indexOf(guess, i)
-                var span_space = document.getElementById(a)
-                span_space.innerHTML = guess
-                len--
-                i = a + 1
-            }
-        } else {
-            win_func()
+        var i = 0;
+        while (letters.indexOf(guess, i) >= 0) {
+            var a = letters.indexOf(guess, i)
+            var span_space = document.getElementById(a)
+            span_space.innerHTML = guess
+            len--
+            i = a + 1
         }
+        if(len === 0) win_func()
     }
 }
 

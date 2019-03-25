@@ -112,14 +112,8 @@ function key_click(event) {
     }
 }
 
-function klavye(event) {
-    alert("Func works")
-}
-
 // Ilk oyunu baslat
 new_game()
 
 // Herhangi tusha basildiginda
 window.onkeypress = key_click
-
-window.onclick = klavye

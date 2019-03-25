@@ -1,6 +1,6 @@
 var wins = 0
-var bands = ["ELTON_JOHN", "OPUS", "STING", "MICHAEL_JACKSON", "FRANK_SINATRA", "METALLICA"]
-var song_names = ["Sorry Seems To Be The Hardest Word", "Life Is Life", "Englishman In New York", "They Don't Care About Us", "Killing Me Softly", "Nothing Else Matters"]
+var bands = ["ELTON_JOHN", "OPUS", "STING", "MICHAEL_JACKSON", "FRANK_SINATRA", "METALLICA", "QUEEN", "PHIL_COLLINS", "EAGLES", "LED_ZEPPELIN", "JOHN_LENNON", "SURVIVOR"]
+var song_names = ["Sorry Seems To Be The Hardest Word", "Live Is Life", "Englishman In New York", "They Don't Care About Us", "My Way", "Nothing Else Matters", "The Show Must Go On", "Another Day In Paradise", "Hotel California", "Stairway To Heaven", "Imagine", "Eye Of The Tiger"]
 
 for (let i = 0; i < bands.length; i++) {
     console.log(bands[i])
@@ -13,7 +13,7 @@ left_side.appendChild(band_image)
 
 band_song = document.createElement("audio")
 band_song.autoplay = true
-band_song.style = "margin-top: 30px; height: 30px;"
+band_song.style = "height: 30px;"
 band_song.position = "bottom"
 
 left_side = document.querySelector(".song")
@@ -74,8 +74,6 @@ function lose_func() {
 
     let song_name_space = document.querySelector("#song_name")
     song_name_space.innerHTML = ""
-    band_song.src = ""
-    band_song.controls = false
     
     new_game()
 }
@@ -114,8 +112,14 @@ function key_click(event) {
     }
 }
 
+function klavye(event) {
+    alert("Func works")
+}
+
 // Ilk oyunu baslat
 new_game()
 
 // Herhangi tusha basildiginda
 window.onkeypress = key_click
+
+window.onclick = klavye

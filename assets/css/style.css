@@ -44,14 +44,9 @@ section .text {
 }
 
 .left, .right {
-    border: dotted 6px white;
+    border: dashed 4px white;
 }
 
 .left {
-    border-right: dashed 4px white;
     padding: 20px;
-}
-
-.right {
-    border-left: dashed 4px white;
 }

@@ -70,7 +70,11 @@ function win_func() {
 function lose_func() {
     let message = document.querySelector("#msg")
     message.innerHTML = "YOU LOSE"
-    band_song.src = " "
+    band_image.src = "./assets/images/lose.jpg"
+
+    let song_name_space = document.querySelector("#song_name")
+    song_name_space.innerHTML = ""
+    band_song.src = ""
     band_song.controls = false
     
     new_game()

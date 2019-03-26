@@ -6,17 +6,16 @@ for (let i = 0; i < bands.length; i++) {
     console.log(bands[i])
 }
 
-band_image = document.createElement("img")
+var band_image = document.createElement("img")
 band_image.src = "./assets/images/hangman-boardgame.jpg"
-left_side = document.querySelector(".band_pic")
+var left_side = document.querySelector(".band_pic")
 left_side.appendChild(band_image)
 
-band_song = document.createElement("audio")
+var band_song = document.createElement("audio")
 band_song.autoplay = true
 band_song.style = "height: 30px;"
-band_song.position = "bottom"
 
-left_side = document.querySelector(".song")
+var left_side = document.querySelector(".song")
 left_side.appendChild(band_song)
 
 // Yeni oyun baslatmak icin fonksiyon
@@ -63,7 +62,6 @@ function win_func() {
     wins++
     let win_space = document.querySelector("#wins")
     win_space.innerHTML = wins
-
     new_game()
 }
 
@@ -77,7 +75,7 @@ function lose_func() {
     band_song.controls = false
     let song_name_space = document.querySelector("#song_name")
     song_name_space.innerHTML = ""
-    
+    offer.style = "display: content;"
     new_game()
 }
 
@@ -98,7 +96,10 @@ function key_click(event) {
             }
             chanses_space = document.querySelector("#chanses")
             chanses_space.innerHTML = chanses
-        } else lose_func()
+        } else {
+            previous_band = band
+            lose_func()
+        }
 
     // Dogru harf girildiginde
     } else if (right_guesses.indexOf(guess) === -1 && letters.indexOf(guess) !== -1) {
@@ -114,6 +115,23 @@ function key_click(event) {
         if(len === 0) win_func()
     }
 }
+
+function previous_answer() {
+    band_image.src = "./assets/images/" + previous_band.toLowerCase() + ".jpg"
+    band_song.src = "./assets/audio/" + previous_band + ".mp3"
+    band_song.controls = true
+    band_song.volume="0.7"
+    let message = document.querySelector("#msg")
+    message.innerHTML = previous_band.replace('_',' ')
+    let song_name_space = document.querySelector("#song_name")
+    let ind = bands.indexOf(previous_band)
+    song_name_space.innerHTML = "'" + song_names[ind] + "'"
+    offer.style = "display: none;"
+}
+
+var offer = document.querySelector(".offer")
+offer.style = "display: none;"
+offer.onclick = previous_answer
 
 // Ilk oyunu baslat
 new_game()

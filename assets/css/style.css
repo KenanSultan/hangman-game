@@ -42,6 +42,18 @@ img {
     left: calc(50% - 150px);
 }
 
+.offer {
+    width: 200px;
+    position: absolute;
+    bottom: 20px;
+    left: calc(50% - 100px);
+    color: white;
+}
+
+.offer:hover {
+    color: rgb(255, 127, 227);
+}
+
 section {
     max-width: 800px !important;
     margin-bottom: 60px;

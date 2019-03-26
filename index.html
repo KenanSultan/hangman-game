@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Hangman</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
@@ -26,6 +26,8 @@
                 <div class="band_pic"></div>
                 <h2 id="msg"></h2>
                 <p id="song_name"></p>
+                <button class="btn return-btn">Return to The Game</button>
+                <button class="btn lyrics-btn">Show the lyrics</button>
                 <div class="song"></div>
                 <button class="btn offer">Show the previous answer</button>
             </div>
@@ -40,9 +42,11 @@
                 <p class="text">Letters Already Guessed</p>
                 <p class="var" id="guesses"></p>
             </div>
+            <div class="col-lg-6 col-md-6 lyrics-sec">
+                <iframe class="lyrics"></iframe>
+            </div>
         </div>
     </section>
-
 
     <script src="./assets/javascript/game.js"></script>
 </body>

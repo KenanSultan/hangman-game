@@ -42,7 +42,7 @@ img {
     left: calc(50% - 150px);
 }
 
-.offer {
+.offer, .lyrics-btn, .return-btn {
     width: 200px;
     position: absolute;
     bottom: 20px;
@@ -50,9 +50,14 @@ img {
     color: white;
 }
 
-.offer:hover {
-    color: rgb(255, 127, 227);
+.lyrics-btn, .return-btn {
+    bottom: 60px;
 }
+
+.offer:hover, .lyrics-btn:hover, .return-btn:hover {
+    color:#C91899;
+}
+
 
 section {
     max-width: 800px !important;
@@ -65,11 +70,22 @@ section .text {
     margin-top: 15px;
 }
 
-.left, .right {
+.left, .right, .lyrics-sec {
     border: dashed 4px white;
+}
+
+.lyrics-sec {
+    padding: 0;
 }
 
 .left {
     padding: 20px;
     position: relative;
+}
+
+.lyrics {
+    height: 528px;
+    color: white;
+    border: none;
+    width: 100%;
 }

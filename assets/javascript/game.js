@@ -2,21 +2,28 @@ var wins = 0
 var bands = ["ELTON_JOHN", "OPUS", "STING", "MICHAEL_JACKSON", "FRANK_SINATRA", "METALLICA", "QUEEN", "PHIL_COLLINS", "EAGLES", "LED_ZEPPELIN", "JOHN_LENNON", "SURVIVOR"]
 var song_names = ["Sorry Seems To Be The Hardest Word", "Live Is Life", "Englishman In New York", "They Don't Care About Us", "My Way", "Nothing Else Matters", "The Show Must Go On", "Another Day In Paradise", "Hotel California", "Stairway To Heaven", "Imagine", "Eye Of The Tiger"]
 
-for (let i = 0; i < bands.length; i++) {
-    console.log(bands[i])
-}
-
+// Resim olusturup sol tarafa attim
 var band_image = document.createElement("img")
 band_image.src = "./assets/images/hangman-boardgame.jpg"
 var left_side = document.querySelector(".band_pic")
 left_side.appendChild(band_image)
 
+// Player olusturup sol tarafa attim
 var band_song = document.createElement("audio")
 band_song.autoplay = true
 band_song.style = "height: 30px;"
-
 var left_side = document.querySelector(".song")
 left_side.appendChild(band_song)
+
+// Sarki sozleri icin frame
+var lyrics_space = document.querySelector(".lyrics")
+// Sag col
+var right_space = document.querySelector(".right")
+// Sarki sozleri icin col
+var lyrics_sec_space = document.querySelector(".lyrics-sec")
+lyrics_sec_space.style = "display: none;"
+
+
 
 // Yeni oyun baslatmak icin fonksiyon
 function new_game() {
@@ -52,8 +59,12 @@ function new_game() {
 function win_func() {
     band_image.src = "./assets/images/" + band.toLowerCase() + ".jpg"
     band_song.src = "./assets/audio/" + band + ".mp3"
+    lyrics_space.src = "./assets/lyrics/" + band + ".html"
     band_song.controls = true
     band_song.volume="0.7"
+    return_btn = "display: none;"
+    lyrics_btn.style = "display: inline;"
+    offer.style = "display: none;"
     let message = document.querySelector("#msg")
     message.innerHTML = band.replace('_',' ')
     let song_name_space = document.querySelector("#song_name")
@@ -75,7 +86,9 @@ function lose_func() {
     band_song.controls = false
     let song_name_space = document.querySelector("#song_name")
     song_name_space.innerHTML = ""
-    offer.style = "display: content;"
+    return_btn = "display: none;"
+    lyrics_btn.style = "display: none;"
+    offer.style = "display: inline;"
     new_game()
 }
 
@@ -119,6 +132,7 @@ function key_click(event) {
 function previous_answer() {
     band_image.src = "./assets/images/" + previous_band.toLowerCase() + ".jpg"
     band_song.src = "./assets/audio/" + previous_band + ".mp3"
+    lyrics_space.src = "./assets/lyrics/" + previous_band + ".html"
     band_song.controls = true
     band_song.volume="0.7"
     let message = document.querySelector("#msg")
@@ -127,11 +141,34 @@ function previous_answer() {
     let ind = bands.indexOf(previous_band)
     song_name_space.innerHTML = "'" + song_names[ind] + "'"
     offer.style = "display: none;"
+    lyrics_btn.style = "display: inline;"
+}
+
+function show_lyrics() {
+    right_space.style = "display: none;"
+    lyrics_sec_space.style = "display: inline;"
+    lyrics_btn.style = "display: none;"
+    return_btn.style = "display: inline;"
+}
+
+function return_game() {
+    right_space.style = "display: inline;"
+    lyrics_sec_space.style = "display: none;"
+    return_btn.style = "display: none;"
 }
 
 var offer = document.querySelector(".offer")
 offer.style = "display: none;"
 offer.onclick = previous_answer
+
+var lyrics_btn = document.querySelector(".lyrics-btn")
+lyrics_btn.style = "display: none;"
+lyrics_btn.onclick = show_lyrics
+
+var return_btn = document.querySelector(".return-btn")
+return_btn.style = "display: none;"
+return_btn.onclick = return_game
+
 
 // Ilk oyunu baslat
 new_game()

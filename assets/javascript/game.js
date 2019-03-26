@@ -165,6 +165,7 @@ function return_game() {
     right_space.style = "display: inline;"
     lyrics_sec_space.style = "display: none;"
     return_btn.style = "display: none;"
+    lyrics_btn.style = "display: inline;"
 }
 
 // Ilk oyunu baslat

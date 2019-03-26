@@ -23,7 +23,17 @@ var right_space = document.querySelector(".right")
 var lyrics_sec_space = document.querySelector(".lyrics-sec")
 lyrics_sec_space.style = "display: none;"
 
+var offer = document.querySelector(".offer")
+offer.style = "display: none;"
+offer.onclick = previous_answer
 
+var lyrics_btn = document.querySelector(".lyrics-btn")
+lyrics_btn.style = "display: none;"
+lyrics_btn.onclick = show_lyrics
+
+var return_btn = document.querySelector(".return-btn")
+return_btn.style = "display: none;"
+return_btn.onclick = return_game
 
 // Yeni oyun baslatmak icin fonksiyon
 function new_game() {
@@ -62,6 +72,7 @@ function win_func() {
     lyrics_space.src = "./assets/lyrics/" + band + ".html"
     band_song.controls = true
     band_song.volume="0.7"
+    return_btn.style = "display: none;"
     lyrics_btn.style = "display: inline;"
     offer.style = "display: none;"
     let message = document.querySelector("#msg")
@@ -85,7 +96,7 @@ function lose_func() {
     band_song.controls = false
     let song_name_space = document.querySelector("#song_name")
     song_name_space.innerHTML = ""
-    return_btn = "display: none;"
+    return_btn.style = "display: none;"
     lyrics_btn.style = "display: none;"
     offer.style = "display: inline;"
     new_game()
@@ -155,19 +166,6 @@ function return_game() {
     lyrics_sec_space.style = "display: none;"
     return_btn.style = "display: none;"
 }
-
-var offer = document.querySelector(".offer")
-offer.style = "display: none;"
-offer.onclick = previous_answer
-
-var lyrics_btn = document.querySelector(".lyrics-btn")
-lyrics_btn.style = "display: none;"
-lyrics_btn.onclick = show_lyrics
-
-var return_btn = document.querySelector(".return-btn")
-return_btn.style = "display: none;"
-return_btn.onclick = return_game
-
 
 // Ilk oyunu baslat
 new_game()

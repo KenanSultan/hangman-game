@@ -62,7 +62,6 @@ function win_func() {
     lyrics_space.src = "./assets/lyrics/" + band + ".html"
     band_song.controls = true
     band_song.volume="0.7"
-    return_btn = "display: none;"
     lyrics_btn.style = "display: inline;"
     offer.style = "display: none;"
     let message = document.querySelector("#msg")
@@ -148,7 +147,7 @@ function show_lyrics() {
     right_space.style = "display: none;"
     lyrics_sec_space.style = "display: inline;"
     lyrics_btn.style = "display: none;"
-    return_btn.style = "display: inline;"
+    return_btn.style = "display: inline !important;"
 }
 
 function return_game() {

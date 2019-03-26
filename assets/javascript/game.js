@@ -147,7 +147,7 @@ function show_lyrics() {
     right_space.style = "display: none;"
     lyrics_sec_space.style = "display: inline;"
     lyrics_btn.style = "display: none;"
-    return_btn.style = "display: inline !important;"
+    return_btn.style = "display: inline;"
 }
 
 function return_game() {

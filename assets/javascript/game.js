@@ -54,6 +54,7 @@ function win_func() {
     band_image.src = "./assets/images/" + band.toLowerCase() + ".jpg"
     band_song.src = "./assets/audio/" + band + ".mp3"
     band_song.controls = true
+    band_song.volume="0.7"
     let message = document.querySelector("#msg")
     message.innerHTML = band.replace('_',' ')
     let song_name_space = document.querySelector("#song_name")
@@ -71,7 +72,9 @@ function lose_func() {
     let message = document.querySelector("#msg")
     message.innerHTML = "YOU LOSE"
     band_image.src = "./assets/images/lose.jpg"
-
+    band_song.src = "./assets/audio/lose.wav"
+    band_song.volume="1"
+    band_song.controls = false
     let song_name_space = document.querySelector("#song_name")
     song_name_space.innerHTML = ""
     
